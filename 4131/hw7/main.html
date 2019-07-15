@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Form</title>
+    <style>
+      .error {color: #FF0000;}
+    </style>
+    <script src="ts.js"></script>
+  </head>
+  <body>
+
+    <?php
+    // define variables and set to empty values
+    $firstnameErr =lastnameErr = addErr= $stateErr = $cityErr = $zipErr = "";
+    $firstname = lastname = add1 = add2 = $city = $state = $zip = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["firstname"])) {
+        $firstnameErr = "First name is required";
+      } else {
+        $firstname = test_input($_POST["firstname"]);
+        // check if name only contains letters
+        if (!preg_match("/^[a-zA-Z]+$/",$firstname)) {
+          $firstnameErr = "Only letters allowed";
+        }
+      }
+
+
+
+      if (empty($_POST["lastname"])) {
+        $lastnameErr = "Last name is required";
+      } else {
+        $lastname = test_input($_POST["lastname"]);
+        if (!preg_match("/^[a-zA-Z]+$/",$lastname)) {
+          $lastnameErr = "Only letters allowed";
+        }
+      }
+
+      if (empty($_POST["add1"])) {
+        $addErr = "address is required";
+      } else {
+        $add1 = test_input($_POST["add1"]);
+        if (!preg_match("/^[a-zA-Z ]*$/",$add1)) {
+          $addErr = "Only letters and white space allowed";
+        }
+      }
+
+      if (empty($_POST["city"])) {
+        $cityErr = "City is required";
+      } else {
+        $city = test_input($_POST["city"]);
+        if (!preg_match("/^[a-zA-Z ]*$/",$city)) {
+          $cityErr = "Only letters and white space allowed";
+        }
+      }
+
+
+      if (empty($_POST["state"])) {
+        $stateErr = "State is required";
+      } else {
+        $state = test_input($_POST["state"]);
+        if (!preg_match("/^[a-zA-Z]+$/",$state)) {
+          $stateErr = "Only letters allowed";
+        }
+      }
+      if (empty($_POST["zip"])) {
+        $zipErr = "State is required";
+      } else {
+        $zip = test_input($_POST["zip"]);
+        if (!preg_match("/^[0-9]*$/",$zip)) {
+          $zipErr = "Only numbers allowed";
+        }
+      }
+
+
+      if (empty($_POST["add2"])) {
+        $add2 = "";
+      } else {
+        $add2 = test_input($_POST["comment"]);
+      }
+
+    }
+
+    function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+    ?>
+
+    <h2>PHP Form Validation Example</h2>
+    <p><span class="error">* required field.</span></p>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+      First Name: <input type="text" name="firstname" value="<?php echo $firstname;?>">
+      <span class="error">* <?php echo $firstnameErr;?></span>
+      <br><br>
+      Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
+      <span class="error">* <?php echo $lastnameErr;?></span>
+      <br><br>
+      Address Line 1: <input type="text" name="add1" value="<?php echo $add1;?>">
+      <span class="error">* <?php echo $addErr;?></span>
+      <br><br>
+      Address Line 2: <input type="text" name="add2" value="<?php echo $add2;?>">
+      <br><br>
+      City: <input type="text" name="city" value="<?php echo $city;?>">
+      <span class="error"><?php echo $cityErr;?></span>
+      <br><br>
+      State: <input type="text" name="state" value="<?php echo $state;?>">
+      <span class="error"><?php echo $stateErr;?></span>
+      <br><br>
+      Zip Code: <input type="text" name="zip" value="<?php echo $zip;?>">
+      <span class="error"><?php echo $zipErr;?></span>
+      <br><br>
+      <input type="submit" name="submit" value="Submit" onclick="loadXMLDoc()">
+    </form>
+
+    <?php
+    echo "{" >> info.json;
+    echo \"Firstname\": \"$firstname\", >> info.json;
+    echo \"Lastname\": \"$lastname\", >> info.json;
+    echo \"Addressline1\": \"$add1\", >> info.json;
+    echo \"Addressline2\": \"$add2\", >> info.json;
+    echo \"City\": \"$city\", >> info.json;
+    echo \"State\": \"$state\", >> info.json;
+    echo \"ZipCode\": \"$zip\", >> info.json;
+    echo "}" >> info.json;
+    ?>
+
+  </body>
+</html>

@@ -1,0 +1,132 @@
+#red{
+	height: 200px;
+	width: 200px;
+	background-color: red;
+	border: 4px solid violet;
+	z-index: 1;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	}
+h2.red{color: violet;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#orange{
+	height: 200px;
+	width: 200px;
+	background-color: orange;
+	border: 4px solid indigo;
+	z-index: 2;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	}
+h2.orange{color: indigo;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#yellow{
+	height: 200px;
+	width: 200px;
+	background-color: yellow;
+	border: 4px solid blue;
+	z-index: 3;
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	}
+h2.yellow{color: blue;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#green{
+	height: 200px;
+	width: 200px;
+	background-color: green;
+	border: 4px solid black;
+	z-index: 4;
+	position: absolute;
+	top: 300px;
+	left: 300px;
+	}
+h2.green{color: black;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#blue{height: 200px;
+	width: 200px;
+	background-color: blue;
+	z-index: 5;
+	border: 4px solid yellow;
+	position: absolute;
+	top: 400px;
+	left: 200px;
+	}
+h2.blue{color: yellow;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#indigo{
+	height: 200px;
+	width: 200px;
+	background-color: indigo;
+	border: 4px solid orange;
+	z-index: 6;
+	position: absolute;
+	top: 500px;
+	left: 100px;
+	}
+h2.indigo{color: orange;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#violet{
+	height: 200px;
+	width: 200px;
+	background-color: violet;
+	border: 4px solid red;
+	z-index: 7;
+	position: absolute;
+	top: 600px;
+	left: 0px;
+	}
+h2.violet{color: red;
+	font-style: italic;
+	padding: 1px;
+	position: relative;
+	top: -23px;
+}
+#black{
+	height: 200px;
+	width: 200px;
+	background-color: black;
+	z-index: 8;
+	position: absolute;
+	top: 300px;
+	right: 100px;
+	border: 4px solid green;
+	}
+p.black{color: white;
+	font-style: italic;
+	position: relative;
+	top: 70px;
+	left: 2px;
+}
+p{
+	position: absolute;;
+	bottom: 10px;
+	right: 10px;
+}
